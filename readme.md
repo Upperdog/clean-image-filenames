@@ -11,7 +11,7 @@ Say goodbye to bad image filenames like Château-de-Ferrières.jpg and say hello
 
 ## Add your own mime types
 
-You can easily add you own mime types by using the <pre>sif_valid_mime_types</pre> filter in your theme or plugin. Example usage: 
+You can easily add you own mime types by using the `sif_valid_mime_types` filter in your theme or plugin. Example usage: 
 
 <pre><code>function custom_sif_valid_mime_types() {
 
