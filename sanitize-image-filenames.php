@@ -1,7 +1,7 @@
 <?php 
 /**
  * Plugin Name: Sanitize Image Filenames
- * Description: Say goodbye to bad image filenames like Château-de-Ferrières.jpg and say hello to nice and clean filenames like chateau-de-ferrieres.jpg. This plugins sanitizes filenames for select mime types when the file is being uploaded to the WordPress media library. The plugin can be used on single sites or multisite networks.
+ * Description: Say goodbye to bad image filenames like Château-de-Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This plugins sanitizes filenames for select mime types when the file is being uploaded to the WordPress media library. 
  * Version: 1.0
  * Author: UPPERDOG
  * Author URI: http://upperdog.com
