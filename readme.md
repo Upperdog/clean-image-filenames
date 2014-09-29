@@ -1,4 +1,4 @@
-# Sanitize Image Filenames
+# Clean Image Filenames
 
 Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This plugins sanitizes filenames for select mime types when the file is being uploaded to the WordPress media library. 
 
@@ -24,6 +24,16 @@ You can easily use this plugin for any file type you want by adding mroe mime ty
 	return $valid_mime_types;
 }
 add_filter('cifn_valid_mime_types', 'custom_cifn_valid_mime_types');</code></pre>
+
+## FAQ
+
+### Why does this plugin exist?
+
+No matter how hard you try to teach people to name their files in a certain way before uploading, sooner or later you will end up with a media library with filenames like Château de Ferrières.jpg or Smörgåsbord.png. Sometimes browsers have a hard time displaying images with filenames like these and the images ends up broken. 
+
+### Why not use the remove_accents() filter?
+
+The `remove_accents()` filter converts accent charactes to ASCII characters. While that works great, it doesn't convert periods, commas, and other special characters. You never know what weird characters might end up in a filename, so we thought it was a better idea to use the `sanitize_title()` filter that does everything we need; converts accent characters to ASCII characters and converts whitespaces and special characters to dashes. 
 
 ## Installation
 

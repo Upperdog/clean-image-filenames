@@ -45,9 +45,9 @@ You can easily use this plugin for any file type you want by adding mroe mime ty
 
 = Why does this plugin exist? =
 
-No matter how hard you try to teach people to name their files in a certain way before uploading, sooner or later you will end up with a media library with filenames like Château de Ferrières.jpg or Smörgåsbord.png. Sometimes browser have a hard time displaying images with filenames like these and the images ends up broken. 
+No matter how hard you try to teach people to name their files in a certain way before uploading, sooner or later you will end up with a media library with filenames like Château de Ferrières.jpg or Smörgåsbord.png. Sometimes browsers have a hard time displaying images with filenames like these and the images ends up broken. 
 
-= Why are you using the sanitiez_title() filter over remove_accents()? =
+= Why not use the remove_accents() filter? =
 
 The `remove_accents()` filter converts accent charactes to ASCII characters. While that works great, it doesn't convert periods, commas, and other special characters. You never know what weird characters might end up in a filename, so we thought it was a better idea to use the `sanitize_title()` filter that does everything we need; converts accent characters to ASCII characters and converts whitespaces and special characters to dashes. 
 
