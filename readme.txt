@@ -49,6 +49,10 @@ Example usage:
 
 No matter how hard you try to teach people to name their files in a certain way before uploading, sooner or later you will end up with a media library with filenames like Château de Ferrières.jpg or Smörgåsbord.png. Sometimes browsers have a hard time displaying images with filenames like these and the images end up broken. 
 
+= Can this plugin change the filename of files already in the media library? = 
+
+No, this plugin only changes the filename when the file is uploaded to the WordPress media library for the first time.
+
 = Why not use the remove_accents() filter? =
 
 The `remove_accents()` filter converts accent charactes to ASCII characters. While that works great, it doesn't convert periods, commas, and other special characters. You never know what weird characters might end up in a filename, so we thought it was a better idea to use the `sanitize_title()` filter that does everything we need; converts accent characters to ASCII characters and converts whitespaces and special characters to dashes. 
