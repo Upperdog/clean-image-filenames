@@ -1,7 +1,7 @@
 <?php 
 /**
  * Plugin Name: Clean Image Filenames
- * Description: Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This plugins sanitizes filenames for select mime types when the file is being uploaded to the WordPress media library. 
+ * Description: Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This plugins sanitizes filenames for select mime types when the file is uploaded to the WordPress media library. 
  * Version: 1.0
  * Author: UPPERDOG
  * Author URI: http://upperdog.com
@@ -37,9 +37,9 @@ class CleanImageFilenames {
 
 	function upload_filter($file) {
 
-		/**
+		/*
 		 * Only sanitize the filename for files that has one of these mime types. 
-		 * The list of mime types can be customized using the cifn_valid_mime_types filter.
+		 * The list of mime types can be customized using the clean_image_filenames_mime_types filter.
 		 * For a complete list of mime types, see http://en.wikipedia.org/wiki/Internet_media_type
 		 */
 		$valid_mime_types = array(
@@ -51,18 +51,18 @@ class CleanImageFilenames {
 		);
 
 
-		/**
+		/*
 		 * If the current file's mime type is in the array of valid mime types, the filename 
 		 * will be sanitized and saved to the original $file array.
 		 */
-		if (in_array($file['type'], apply_filters('cifn_valid_mime_types', $valid_mime_types))) {
+		if (in_array($file['type'], apply_filters('clean_image_filenames_mime_types', $valid_mime_types))) {
 			$path = pathinfo($file['name']);
 			$new_filename = preg_replace('/.' . $path['extension'] . '$/', '', $file['name']);
 			$file['name'] = sanitize_title($new_filename) . '.' . $path['extension'];
 		}
 
 
-		/**
+		/*
 		 * Return the $file array. If the filename wasn't changed, the input array 
 		 * is returned without any modifications.
 		 */
