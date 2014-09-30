@@ -1,6 +1,6 @@
 # Clean Image Filenames
 
-Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This plugins sanitizes filenames for select mime types when the file is being uploaded to the WordPress media library. 
+Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This plugin sanitizes filenames for select mime types when the file is being uploaded to the WordPress media library. 
 
 ## Features
 
@@ -11,7 +11,7 @@ Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsb
 
 ## Add your own mime types
 
-You can easily use this plugin for any file type you want by adding mroe mime types using the `cifn_valid_mime_types` filter in your theme or plugin. Example usage: 
+You can easily use this plugin for any file type you want by adding more mime types using the `cifn_valid_mime_types` filter in your theme or plugin. Example usage: 
 
 <pre><code>function custom_cifn_valid_mime_types() {
 
@@ -29,7 +29,7 @@ add_filter('cifn_valid_mime_types', 'custom_cifn_valid_mime_types');</code></pre
 
 ### Why does this plugin exist?
 
-No matter how hard you try to teach people to name their files in a certain way before uploading, sooner or later you will end up with a media library with filenames like Château de Ferrières.jpg or Smörgåsbord.png. Sometimes browsers have a hard time displaying images with filenames like these and the images ends up broken. 
+No matter how hard you try to teach people to name their files in a certain way before uploading, sooner or later you will end up with a media library with filenames like Château de Ferrières.jpg or Smörgåsbord.png. Sometimes browsers have a hard time displaying images with filenames like these and the images end up broken. 
 
 ### Why not use the remove_accents() filter?
 
