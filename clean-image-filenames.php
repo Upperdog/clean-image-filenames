@@ -1,7 +1,7 @@
 <?php 
 /**
  * Plugin Name: Clean Image Filenames
- * Description: Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This plugins sanitizes filenames for select mime types when the file is uploaded to the WordPress media library. 
+ * Description: Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This WordPress plugin replaces accent characters and special characters in the filename of files uploaded to the WordPress media library.
  * Version: 1.0
  * Author: UPPERDOG
  * Author URI: http://upperdog.com
