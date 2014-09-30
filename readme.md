@@ -1,6 +1,6 @@
 # Clean Image Filenames
 
-Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This plugin sanitizes filenames for select mime types when the file is being uploaded to the WordPress media library. 
+Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This plugin sanitizes filenames for select mime types when the file is uploaded to the WordPress media library. 
 
 ## Features
 
@@ -11,19 +11,21 @@ Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsb
 
 ## Add your own mime types
 
-You can easily use this plugin for any file type you want by adding more mime types using the `cifn_valid_mime_types` filter in your theme or plugin. Example usage: 
+You can easily use this plugin for any file type you want by adding more mime types using the `clean_image_filenames_mime_types` filter in your theme or plugin. For a complete list of mime types, see [Wikipedia](http://en.wikipedia.org/wiki/Internet_media_type)
 
-<pre><code>function custom_cifn_valid_mime_types() {
+Example usage: 
 
-	$valid_mime_types = array(
+<pre><code>function my_clean_image_filenames_mime_types() {
+
+	$mime_types = array(
 		'application/pdf', 
 		'image/jpeg', 
 		'image/png', 
 	);
 
-	return $valid_mime_types;
+	return $mime_types;
 }
-add_filter('cifn_valid_mime_types', 'custom_cifn_valid_mime_types');</code></pre>
+add_filter('clean_image_filenames_mime_types', 'my_clean_image_filenames_mime_types');</code></pre>
 
 ## FAQ
 
