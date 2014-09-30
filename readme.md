@@ -37,8 +37,9 @@ The `remove_accents()` filter converts accent charactes to ASCII characters. Whi
 
 ## Installation
 
-1. Upload the `clean-image-filenames` directory to the `/wp-content/plugins/` directory.
-2. Activate the plugin through the 'Plugins' menu in WordPress.
+1. Rename the `clean-image-filenames-master` directory to `clean-image-filenames`.
+2. Upload the `clean-image-filenames` directory to the `/wp-content/plugins/` directory.
+3. Activate the plugin through the 'Plugins' menu in WordPress.
 
 ## Changelog
 
