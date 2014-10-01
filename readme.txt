@@ -7,7 +7,7 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This WordPress plugin replaces accent characters and special characters, like Swedish and German umlauts, in the filename of files uploaded to the WordPress media library. The range of file types that the plugin reacts to can be easily extended using a filter in your theme or plugin.
+Say goodbye to bad image filenames like Château de Ferrières.jpg and say hello to nice and clean filenames like chateau-de-ferrieres.jpg.
 
 == Description ==
 
@@ -43,7 +43,7 @@ Example usage:
 1. Upload the `clean-image-filenames` directory to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
-== FAQ == 
+== Frequently Asked Questions == 
 
 = Why does this plugin exist? =
 
