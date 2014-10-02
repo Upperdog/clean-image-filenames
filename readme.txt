@@ -7,11 +7,11 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This plugin sanitizes filenames for select mime types when the file is being uploaded to the WordPress media library. 
+Say goodbye to bad image filenames like Château de Ferrières.jpg and say hello to nice and clean filenames like chateau-de-ferrieres.jpg.
 
 == Description ==
 
-Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This plugin sanitizes filenames for select mime types when the file is being uploaded to the WordPress media library. 
+Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This WordPress plugin replaces accent characters and special characters, like Swedish and German umlauts, in the filename of files uploaded to the WordPress media library. The range of file types that the plugin reacts to can be easily extended using a filter in your theme or plugin.
 
 = Features = 
 
@@ -22,30 +22,36 @@ Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsb
 
 = Use for more than images =
 
-You can easily use this plugin for any file type you want by adding more mime types using the `cifn_valid_mime_types` filter in your theme or plugin. Example usage: 
+You can easily use this plugin for any file type you want by adding more mime types using the `clean_image_filenames_mime_types` filter in your theme or plugin. For a complete list of mime types, see http://en.wikipedia.org/wiki/Internet_media_type
 
-`function custom_cifn_valid_mime_types() {`
+Example usage: 
+
+`function my_clean_image_filenames_mime_types() {`
 ``
-`	$valid_mime_types = array(`
+`	$mime_types = array(`
 `		'application/pdf', `
 `		'image/jpeg', `
 `		'image/png', `
 `	);`
 ``
-`	return $valid_mime_types;`
+`	return $mime_types;`
 `}`
-`add_filter('cifn_valid_mime_types', 'custom_cifn_valid_mime_types');`
+`add_filter('clean_image_filenames_mime_types', 'my_clean_image_filenames_mime_types');`
 
 == Installation ==
 
 1. Upload the `clean-image-filenames` directory to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
-== FAQ == 
+== Frequently Asked Questions == 
 
 = Why does this plugin exist? =
 
 No matter how hard you try to teach people to name their files in a certain way before uploading, sooner or later you will end up with a media library with filenames like Château de Ferrières.jpg or Smörgåsbord.png. Sometimes browsers have a hard time displaying images with filenames like these and the images end up broken. 
+
+= Can this plugin change the filename of files already in the media library? = 
+
+No, this plugin only changes the filename when the file is uploaded to the WordPress media library for the first time.
 
 = Why not use the remove_accents() filter? =
 
