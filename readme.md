@@ -1,6 +1,6 @@
 # Clean Image Filenames
 
-Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This WordPress plugin replaces accent characters and special characters, like Swedish or German umlauts, in the filename of files uploaded to the WordPress media library. The range of file types that the plugin reacts to can be easily extended using a filter in your theme or plugin.
+Say goodbye to bad filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This WordPress plugin replaces accent characters and special characters, like Swedish or German umlauts, in the filename of files uploaded to the WordPress media library. The range of file types that the plugin reacts to can be easily extended using a filter in your theme or plugin.
 
 ## Features
 
