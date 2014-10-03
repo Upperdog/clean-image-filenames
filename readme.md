@@ -4,14 +4,14 @@ Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsb
 
 ## Features
 
-* Can be used for more than images
+* Can be also used for other file types
 * Is multisite compatible
 * Works with custom upload_dir setups
 * Doesn't alter your database or uploads settings
 
 ## Add your own mime types
 
-You can easily use this plugin for any file type you want by adding more mime types using the `clean_image_filenames_mime_types` filter in your theme or plugin. For a complete list of mime types, see [Wikipedia](http://en.wikipedia.org/wiki/Internet_media_type)
+You can easily use this plugin for any file type you want by adding more mime types using the `clean_image_filenames_mime_types` filter in your theme or plugin. For a complete list of mime types, see [Wikipedia](http://en.wikipedia.org/wiki/Internet_media_type).
 
 Example usage: 
 

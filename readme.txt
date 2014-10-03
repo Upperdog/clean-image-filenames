@@ -15,7 +15,7 @@ Say goodbye to bad image filenames like Château de Ferrières.jpg or Smörgåsb
 
 = Features = 
 
-* Can be used for more than images
+* Can be also used for other file types
 * Is multisite compatible
 * Works with custom upload_dir setups
 * Doesn't alter your database or uploads settings
