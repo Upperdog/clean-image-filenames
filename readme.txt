@@ -26,17 +26,15 @@ You can easily use this plugin for any file type you want by adding more mime ty
 
 Example usage: 
 
-`function my_clean_image_filenames_mime_types() {`
-``
-`	$mime_types = array(`
-`		'application/pdf', `
-`		'image/jpeg', `
-`		'image/png', `
-`	);`
-``
-`	return $mime_types;`
-`}`
-`add_filter('clean_image_filenames_mime_types', 'my_clean_image_filenames_mime_types');`
+<pre><code>function my_clean_image_filenames_mime_types() {
+	$mime_types = array(
+		'application/pdf', 
+		'image/jpeg', 
+		'image/png', 
+	);
+	return $mime_types;
+}
+add_filter('clean_image_filenames_mime_types', 'my_clean_image_filenames_mime_types');</code></pre>
 
 == Installation ==
 
