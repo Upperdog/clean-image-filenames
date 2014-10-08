@@ -22,7 +22,7 @@ Say goodbye to bad filenames like Château de Ferrières.jpg or Smörgåsbord.pn
 
 = Use for more than images =
 
-By default, this plugin works with the following file types: GIF, JPEG, PNG. However, you can easily use this plugin for any file type you want by adding your own set of mime types using the `clean_image_filenames_mime_types` filter in your theme or plugin. *When using the filter, the default set of mime types is overridden.* For a complete list of mime types, see http://en.wikipedia.org/wiki/Internet_media_type
+By default, this plugin works with the following file types: GIF, JPEG, PNG. However, you can easily use this plugin for any file type you want by adding your own set of mime types using the `clean_image_filenames_mime_types` filter in your theme or plugin. **When using the filter, the default set of mime types is overridden.** For a complete list of mime types, see http://en.wikipedia.org/wiki/Internet_media_type
 
 Example usage: 
 
