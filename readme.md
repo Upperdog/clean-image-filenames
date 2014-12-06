@@ -49,4 +49,9 @@ The `remove_accents()` filter converts accent charactes to ASCII characters. Whi
 
 ## Changelog
 
-* 1.0: Initial release.
+### 1.1
+* Added plugin settings section to media settings page. 
+* Added shortcut to settings page from plugins list.
+
+### 1.0
+* Initial release.
