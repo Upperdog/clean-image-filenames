@@ -33,6 +33,40 @@ class CleanImageFilenames {
 
 	function __construct() {
 		add_action('wp_handle_upload_prefilter', array($this, 'upload_filter'));
+		add_action('admin_init', array($this, 'admin_init'));
+		add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'add_action_links'));
+	}
+
+	function admin_init() {
+
+		// Add settings section
+		add_settings_section( 'clean_image_filenames_settings_section', 'Clean Image Filenames', array($this, 'clean_image_filenames_settings_section_callback'), 'media' );
+
+		// Load plugin translations
+		load_plugin_textdomain('clean_image_filenames', false, dirname(plugin_basename(__FILE__)) . '/languages/');
+	}
+
+
+	/**
+	 * add_action_links()
+	 *
+	 * 
+	 */
+
+	function add_action_links($links) {
+
+		$plugin_action_links = array(
+			'<a href="' . admin_url('options-media.php') . '">' . __('Settings') . '</a>'
+		);
+
+		return array_merge($links, $plugin_action_links);
+	}
+
+	function clean_image_filenames_settings_section_callback($args) {
+
+		echo '<p>' . __('Choose which file types that Clean Image Filenames shall improve the filenames for when files are uploaded.', 'clean_image_filenames') . '</p>';
+		echo '<p>' . __('All file types', 'clean_image_filenames') . '</p>';
+		echo '<p>' . __('Images only', 'clean_image_filenames') . '</p>';
 	}
 
 	function upload_filter($file) {
