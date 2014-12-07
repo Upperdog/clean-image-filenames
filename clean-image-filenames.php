@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Clean Image Filenames
  * Description: Say goodbye to bad filenames like Château de Ferrières.jpg and say hello to nice and clean filenames like chateau-de-ferrieres.jpg.
- * Version: 1.0
+ * Version: 1.1
  * Author: UPPERDOG
  * Author URI: http://upperdog.com
  * Author Email: hello@upperdog.se
@@ -31,20 +31,39 @@ if(!defined('ABSPATH')) {
 
 class CleanImageFilenames {
 
+	public $new_plugin_version = '1.1';
+
 	function __construct() {
+
 		register_activation_hook(__FILE__, array($this, 'plugin_activation'));
-		add_action('wp_handle_upload_prefilter', array($this, 'upload_filter'));
+		add_action('plugins_loaded', array($this, 'plugins_loaded'));
 		add_action('admin_init', array($this, 'admin_init'));
 		add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'add_action_links'));
+		add_action('wp_handle_upload_prefilter', array($this, 'upload_filter'));
 	}
-
 
 	function plugin_activation() {
-
-		// Add default value for mime types field
-		add_option('clean_image_filenames_mime_types', 'images');
+		$this->add_default_plugin_settings();
 	}
 
+	function plugins_loaded() {
+
+		// Check current plugin version
+		if ($this->new_plugin_version !== get_option('clean_image_filenames_plugin_version')) {
+			update_option('clean_image_filenames_plugin_version', $this->new_plugin_version);
+		}
+
+		// Add default plugin settings if they don't already exist
+		$this->add_default_plugin_settings();
+	}
+
+	function add_default_plugin_settings() {
+
+		// Add default value for mime types field if it doesn't already exist
+		if (FALSE === get_option('clean_image_filenames_mime_types')) {
+			add_option('clean_image_filenames_mime_types', 'images');
+		}
+	}
 
 	function admin_init() {
 
@@ -79,19 +98,16 @@ class CleanImageFilenames {
 		register_setting('media', 'clean_image_filenames_mime_types');
 	}
 
-
 	function add_action_links($links) {
 
 		$plugin_action_links = array('<a href="' . admin_url('options-media.php') . '">' . __('Settings') . '</a>');
 		return array_merge($links, $plugin_action_links);
 	}
 
-
 	function clean_image_filenames_settings_section_callback($args) {
 
 		echo '<p>' . __('Choose which file types that Clean Image Filenames shall improve the filenames for when files are uploaded.', 'clean_image_filenames') . '</p>';
 	}
-
 
 	function clean_image_filenames_mime_types_callback($args) {
 
@@ -100,17 +116,16 @@ class CleanImageFilenames {
 		}
 	}
 
-
 	function upload_filter($file) {
 
-		$mime_types = get_option('clean_image_filenames_mime_types');
+		$mime_types_setting = get_option('clean_image_filenames_mime_types');
 		$valid_mime_types = array();
 
-		if ('all' !== $mime_types) {
-			$valid_mime_types = explode(',', $mime_types);
+		if ('all' !== $mime_types_setting) {
+			$valid_mime_types = explode(',', $mime_types_setting);
 		}
 
-		if ('all' == $mime_types || in_array($file['type'], apply_filters('clean_image_filenames_mime_types', $valid_mime_types))) {
+		if ('all' == $mime_types_setting || in_array($file['type'], apply_filters('clean_image_filenames_mime_types', $valid_mime_types))) {
 			$path = pathinfo($file['name']);
 			$new_filename = preg_replace('/.' . $path['extension'] . '$/', '', $file['name']);
 			$file['name'] = sanitize_title($new_filename) . '.' . $path['extension'];
