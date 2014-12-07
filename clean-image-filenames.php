@@ -3,7 +3,7 @@
  * Plugin Name: Clean Image Filenames
  * Description: Say goodbye to bad filenames like Château de Ferrières.jpg and say hello to nice and clean filenames like chateau-de-ferrieres.jpg.
  * Version: 1.1
- * Author: UPPERDOG
+ * Author: Upperdog
  * Author URI: http://upperdog.com
  * Author Email: hello@upperdog.se
  * License: GPL2
