@@ -3,7 +3,7 @@ Contributors: Upperdog, Gesen
 Tags: upload, images, files, media, 
 Requires at least: 2.9
 Tested up to: 4.0.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,12 +15,12 @@ Say goodbye to bad filenames like Château de Ferrières.jpg or Smörgåsbord.pn
 
 = Features = 
 
-* Can be also used for other file types
+* Can be used for all file types or just image file types
 * Is multisite compatible
 * Works with custom upload_dir setups
 * Doesn't alter your database or uploads settings
 
-= Use for more than images =
+= Plugin filter for developers =
 
 By default, this plugin works with the following file types: GIF, JPEG, PNG. However, you can easily use this plugin for any file type you want by adding your own set of mime types using the `clean_image_filenames_mime_types` filter in your theme or plugin. **When using the filter, the default set of mime types is overridden.** For a complete list of mime types, see http://en.wikipedia.org/wiki/Internet_media_type
 
@@ -56,6 +56,11 @@ No, this plugin only changes the filename when the file is uploaded to the WordP
 The `remove_accents()` filter converts accent charactes to ASCII characters. While that works great, it doesn't convert periods, commas, and other special characters. You never know what weird characters might end up in a filename, so we thought it was a better idea to use the `sanitize_title()` filter that does everything we need; converts accent characters to ASCII characters and converts whitespaces and special characters to dashes. 
 
 == Changelog ==
+
+= 1.1 =
+
+* Added plugin settings to media settings page with option to convert all file types or just image file types. 
+* Added shortcut to settings page from plugins list.
 
 = 1.0 =
 
