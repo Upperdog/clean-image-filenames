@@ -1,6 +1,10 @@
 # Clean Image Filenames
 
-Say goodbye to bad filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This WordPress plugin replaces accent characters and special characters, like periods and exclamation marks and Swedish or German umlauts, in the filenames of files uploaded to the WordPress media library. Easily choose if you want the plugin to clean the filenames of all file types or just images. Developers can get really specific about what file types to clean by using the plugin filter in their plugins or themes.
+Filenames with special characters or language accent characters, like Château de Ferrières.jpg and smörgåsbord.png, can sometimes be a problem for browsers or servers. This plugin takes care of that and cleans the filenames of files uploaded to the WordPress media library. 
+
+This plugin cleans the filenames from special characters like exclamation marks, periods, and commas and accent characters like Swedish and German umlauts. Special characters are remove, accent characters are converted to their non-accent equivalent, and blank spaces are converted into dashes. 
+
+Easily set the plugin to clean the filenames of images only or all files uploaded to the media library. Developers can take advantage of the built in filter to get really specific about what file types to clean the filenames of.
 
 ## Features
 
@@ -46,8 +50,16 @@ No, this plugin only cleans the filenames of files when they are being uploaded 
 ## Changelog
 
 ### 1.1
+
 * Added plugin settings to media settings page with option to convert all file types or just image file types. 
 * Added shortcut to plugin settings from the plugins list.
 
 ### 1.0
+
 * Initial release.
+
+## Upgrade Notice
+
+### 1.1
+
+This version adds plugin settings to the media settings page which lets you select between cleaning the filenames of all files or images only. The filter from version 1.0 is still available.

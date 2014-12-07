@@ -6,12 +6,17 @@ Tested up to: 4.0.1
 Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RDLVEE9A2LMUL
 
-Say goodbye to bad filenames like Château de Ferrières.jpg and say hello to nice and clean filenames like chateau-de-ferrieres.jpg.
+Filenames with special characters or language accent characters can sometimes be a problem. This plugin takes care of that by cleaning the filenames.
 
 == Description ==
 
-Say goodbye to bad filenames like Château de Ferrières.jpg or Smörgåsbord.png and say hello to nice and clean filenames like chateau-de-ferrieres.jpg and smargasbord.png. This WordPress plugin replaces accent characters and special characters, like periods and exclamation marks and Swedish or German umlauts, in the filenames of files uploaded to the WordPress media library. Easily choose if you want the plugin to clean the filenames of all file types or just images. Developers can get really specific about what file types to clean by using the plugin filter in their plugins or themes.
+Filenames with special characters or language accent characters, like Château de Ferrières.jpg and smörgåsbord.png, can sometimes be a problem for browsers or servers. This plugin takes care of that and cleans the filenames of files uploaded to the WordPress media library. 
+
+This plugin cleans the filenames from special characters like exclamation marks, periods, and commas and accent characters like Swedish and German umlauts. Special characters are remove, accent characters are converted to their non-accent equivalent, and blank spaces are converted into dashes. 
+
+Easily set the plugin to clean the filenames of images only or all files uploaded to the media library. Developers can take advantage of the built in filter to get really specific about what file types to clean the filenames of.
 
 = Features = 
 
@@ -47,9 +52,13 @@ add_filter('clean_image_filenames_mime_types', 'my_clean_image_filenames_mime_ty
 
 No matter how hard you try to teach people to name their files in a certain way before uploading, sooner or later you will end up with a media library with filenames like Château de Ferrières.jpg or Smörgåsbord.png. Sometimes browsers have a hard time displaying images with filenames like these and the images end up broken. 
 
-= Can this plugin clean the filenames of existing files in the media library?
+= Can this plugin clean the filenames of existing files in the media library? =
 
 No, this plugin only cleans the filenames of files when they are being uploaded to the media library.
+
+== Screenshots ==
+
+1. Easily choose between cleaning the filenames of all files or images only.
 
 == Changelog ==
 
@@ -61,3 +70,9 @@ No, this plugin only cleans the filenames of files when they are being uploaded 
 = 1.0 =
 
 * Initial release.
+
+== Upgrade Notice ==
+
+= 1.1 =
+
+This version adds plugin settings to the media settings page which lets you select between cleaning the filenames of all files or images only. The filter from version 1.0 is still available.
