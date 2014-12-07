@@ -79,35 +79,40 @@ class CleanImageFilenames {
 
 	/**
 	 * Updates plugin version database setting and calls default settings function.
+	 * 
+	 * Checks current plugin version. If the plugin has been updated, the saved 
+	 * plugin version in the database is updated. 
+	 * 
+	 * Adds default plugin settings if they don't already exist. Default plugin 
+	 * settings didn't exist prior to version 1.1. 
 	 *
 	 * @since 1.1
 	 */
 
 	function plugins_loaded() {
 
-		// Check current plugin version
 		if ($this->plugin_settings['version'] !== get_option('clean_image_filenames_plugin_version')) {
 			update_option('clean_image_filenames_plugin_version', $this->plugin_settings['version']);
 		}
 
-		// Add default plugin settings if they don't already exist
 		$this->add_default_plugin_settings();
 	}
 
 
 	/**
-	 * Adds default plugin settings to the database.
+	 * Adds default plugin settings in the database.
 	 *
 	 * This function runs when the plugin is activated and when plugins are loaded 
-	 * using the plugins_loaded hook. The function adds default plugin settings as 
-	 * an option to the database options table. 
+	 * using the plugins_loaded hook. The function updates default plugin settings 
+	 * in the database options table. 
+	 * 
+	 * Adds default value for mime types field if it doesn't already exist
 	 *
 	 * @since 1.1
 	 */
 
 	function add_default_plugin_settings() {
 
-		// Add default value for mime types field if it doesn't already exist
 		if (FALSE === get_option('clean_image_filenames_mime_types')) {
 			add_option('clean_image_filenames_mime_types', 'images');
 		}
