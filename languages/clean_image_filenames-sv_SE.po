@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Clean Image Filenames\n"
-"POT-Creation-Date: 2014-12-07 12:32+0100\n"
-"PO-Revision-Date: 2014-12-07 12:32+0100\n"
+"POT-Creation-Date: 2014-12-07 19:37+0100\n"
+"PO-Revision-Date: 2014-12-07 19:37+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -18,26 +18,34 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: clean-image-filenames.php:79
+#: clean-image-filenames.php:139
 msgid "File types"
 msgstr "Filtyper"
 
-#: clean-image-filenames.php:87
+#: clean-image-filenames.php:147
 msgid "All file types"
 msgstr "Alla filtyper"
 
-#: clean-image-filenames.php:91
+#: clean-image-filenames.php:151
 msgid "Images only"
 msgstr "Endast bilder"
 
-#: clean-image-filenames.php:103
+#: clean-image-filenames.php:171
 msgid "Settings"
 msgstr "Inställningar"
 
-#: clean-image-filenames.php:109
+#: clean-image-filenames.php:184
 msgid ""
 "Choose which file types that Clean Image Filenames shall improve the "
 "filenames for when files are uploaded."
 msgstr ""
 "Välj vilka filtyper som Clean Image Filenames ska förbättra filnamnen för "
 "när filer laddas upp."
+
+#: clean-image-filenames.php:206
+msgid ""
+"The setting for what file types should be cleaned is disabled since a plugin "
+"or theme has already defined what file types should be cleaned."
+msgstr ""
+"Inställningen för vilka filtyper som ska fixas är inaktiverad eftersom ett "
+"plugin eller tema redan har definierat vilka filtyper som ska fixas."
