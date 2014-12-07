@@ -188,6 +188,12 @@ class CleanImageFilenames {
 	/**
 	 * Outputs the settings fields.
 	 * 
+	 * If the plugin filter has been used in a plugin or theme, the filter 
+	 * overrides the settings are the settings are therefore disabled.
+	 *
+	 * If the plugin filter has not been used, the user selected setting of what 
+	 * file types to clean is used.
+	 * 
 	 * @since 1.1
 	 * @param array Field defails.
 	 */
@@ -196,14 +202,10 @@ class CleanImageFilenames {
 
 		if (apply_filters('clean_image_filenames_mime_types', $this->plugin_settings['default_mime_types']) !== $this->plugin_settings['default_mime_types']) {
 			
-			// If the plugin filter has been used in a plugin or theme, the filter overrides the settings are the settings are therefore disabled.
-
 			echo '<input name="clean_image_filenames_mime_types" id="clean_image_filenames_mime_types" type="hidden" value="' . get_option('clean_image_filenames_mime_types') . '">';
-			echo '<i>File type settings are overridden by plugin and/or theme.</i>';
+			echo '<i>' . __('The setting for what file types should be cleaned is disabled since a plugin or theme has already defined what file types should be cleaned.', 'clean_image_filenames') . '</i>';
 
 		} else {
-
-			// If the plugin filter has not been used, the user can select file types on the settings page.
 
 			foreach ($args['alternatives'] as $alternative) {
 				echo '<label><input name="clean_image_filenames_mime_types" id="clean_image_filenames_mime_types" type="radio" value="' . $alternative['value'] . '" ' . checked($alternative['value'], get_option('clean_image_filenames_mime_types'), false) . '>' . $alternative['label'] . '</label><br>';
