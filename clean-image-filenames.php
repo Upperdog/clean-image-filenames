@@ -1,7 +1,7 @@
 <?php 
 /**
  * Plugin Name: Clean Image Filenames
- * Description: Say goodbye to bad filenames like Château de Ferrières.jpg and say hello to nice and clean filenames like chateau-de-ferrieres.jpg.
+ * Description: Filenames with special characters or language accent characters can sometimes be a problem. This plugin takes care of that by cleaning the filenames.
  * Version: 1.1
  * Author: Upperdog
  * Author URI: http://upperdog.com
