@@ -62,6 +62,10 @@ No, this plugin only cleans the filenames of files when they are being uploaded 
 
 == Changelog ==
 
+= 1.1.1 =
+
+* Added uninstall script that deletes plugin settings when the plugin is uninstalled.
+
 = 1.1 =
 
 * Added plugin settings to media settings page with option to convert all file types or just image file types. 
@@ -72,6 +76,10 @@ No, this plugin only cleans the filenames of files when they are being uploaded 
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+
+This version adds plugin uninstall script that deletes plugin settings if you were to delete the plugin.
 
 = 1.1 =
 
