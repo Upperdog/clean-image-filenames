@@ -1,5 +1,5 @@
 === Clean Image Filenames ===
-Contributors: Gesen, Upperdog
+Contributors: Upperdog, Gesen
 Tags: upload, images, files, media, 
 Requires at least: 2.9
 Tested up to: 4.8
