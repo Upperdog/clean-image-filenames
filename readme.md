@@ -49,6 +49,10 @@ No, this plugin only cleans the filenames of files when they are being uploaded 
 
 ## Changelog
 
+## 1.2
+
+* Set original, un-cleaned filename as attachment title.
+
 ### 1.1.1
 
 * Added uninstall script that deletes plugin settings when the plugin is uninstalled.

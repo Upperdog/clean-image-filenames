@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Clean Image Filenames
  * Description: Filenames with special characters or language accent characters can sometimes be a problem. This plugin takes care of that by cleaning the filenames.
- * Version: 1.1.1
+ * Version: 1.2
  * Author: Upperdog
  * Author URI: http://upperdog.com
  * Author Email: hello@upperdog.com
@@ -25,7 +25,7 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-if(!defined('ABSPATH')) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -37,9 +37,8 @@ class CleanImageFilenames {
 	 * @var array Plugin settings for version, default mime types.
 	 * @since 1.1
 	 */
-
 	public $plugin_settings = array(
-		'version' 				=> '1.1', 
+		'version' 				=> '1.2', 
 		'default_mime_types' 	=> array(
 			'image/gif',
 			'image/jpeg',
@@ -49,33 +48,28 @@ class CleanImageFilenames {
 		)
 	);
 
-
 	/**
 	 * Sets up hooks, actions and filters that the plugin responds to.
 	 *
 	 * @since 1.0
 	 */
-
 	function __construct() {
-
-		register_activation_hook(__FILE__, array($this, 'plugin_activation'));
-		add_action('plugins_loaded', array($this, 'plugins_loaded'));
-		add_action('admin_init', array($this, 'admin_init'));
-		add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'add_action_links'));
-		add_action('wp_handle_upload_prefilter', array($this, 'upload_filter'));
+		register_activation_hook( __FILE__, array( $this, 'plugin_activation' ) );
+		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
+		add_action( 'admin_init', array( $this, 'admin_init' ) );
+		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'add_action_links' ) );
+		add_action( 'wp_handle_upload_prefilter', array( $this, 'upload_filter' ) );
+		add_action( 'add_attachment', array( $this, 'update_attachment_title' ) );
 	}
-
 
 	/**
 	 * Adds default plugin settings on plugin activation.
 	 *
 	 * @since 1.1
 	 */
-
 	function plugin_activation() {
 		$this->add_default_plugin_settings();
 	}
-
 
 	/**
 	 * Updates plugin version database setting and calls default settings function.
@@ -88,16 +82,14 @@ class CleanImageFilenames {
 	 *
 	 * @since 1.1
 	 */
-
 	function plugins_loaded() {
 
-		if ($this->plugin_settings['version'] !== get_option('clean_image_filenames_plugin_version')) {
-			update_option('clean_image_filenames_plugin_version', $this->plugin_settings['version']);
+		if ( $this->plugin_settings[ 'version' ] !== get_option( 'clean_image_filenames_plugin_version' ) ) {
+			update_option( 'clean_image_filenames_plugin_version', $this->plugin_settings[ 'version' ] );
 		}
 
 		$this->add_default_plugin_settings();
 	}
-
 
 	/**
 	 * Adds default plugin settings in the database.
@@ -110,54 +102,50 @@ class CleanImageFilenames {
 	 *
 	 * @since 1.1
 	 */
-
 	function add_default_plugin_settings() {
 
-		if (FALSE === get_option('clean_image_filenames_mime_types')) {
-			add_option('clean_image_filenames_mime_types', 'images');
+		if ( FALSE === get_option( 'clean_image_filenames_mime_types' ) ) {
+			add_option( 'clean_image_filenames_mime_types', 'images' );
 		}
 	}
-
 
 	/**
 	 * Sets up plugin translations and plugin settings fields.
 	 *
 	 * @since 1.1
 	 */
-
 	function admin_init() {
 
 		// Load plugin translations
-		load_plugin_textdomain('clean_image_filenames', false, dirname(plugin_basename(__FILE__)) . '/languages/');
+		load_plugin_textdomain( 'clean_image_filenames', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 		// Add settings section
-		add_settings_section('clean_image_filenames_settings_section', 'Clean Image Filenames', array($this, 'clean_image_filenames_settings_section_callback'), 'media');
+		add_settings_section( 'clean_image_filenames_settings_section', 'Clean Image Filenames', array( $this, 'clean_image_filenames_settings_section_callback' ), 'media' );
 
 		// Add settings field
 		add_settings_field(
 			'clean_image_filenames_mime_types', 
-			__('File types', 'clean_image_filenames'), 
-			array($this, 'clean_image_filenames_mime_types_callback'), 
+			__( 'File types', 'clean_image_filenames' ), 
+			array( $this, 'clean_image_filenames_mime_types_callback' ), 
 			'media', 
 			'clean_image_filenames_settings_section', 
 			array(
 				'alternatives' => array(
 					array(
 						'value' 	=> 'all', 
-						'label'		=> __('All file types', 'clean_image_filenames')
+						'label'		=> __( 'All file types', 'clean_image_filenames' )
 					), 
 					array(
 						'value' 	=> 'images', 
-						'label'		=> __('Images only', 'clean_image_filenames')
+						'label'		=> __( 'Images only', 'clean_image_filenames' )
 					)
 				)
 			)
 		);
 
 		// Register settings
-		register_setting('media', 'clean_image_filenames_mime_types');
+		register_setting( 'media', 'clean_image_filenames_mime_types' );
 	}
-
 
 	/**
 	 * Add custom action links to the plugin's row in the plugins list.
@@ -166,24 +154,19 @@ class CleanImageFilenames {
 	 * @param array Original action links. 
 	 * @return array Action links with new addition. 
 	 */
-
-	function add_action_links($links) {
-		$plugin_action_links = array('<a href="' . admin_url('options-media.php') . '">' . __('Settings') . '</a>');
-		return array_merge($links, $plugin_action_links);
+	function add_action_links( $links ) {
+		$plugin_action_links = array( '<a href="' . admin_url( 'options-media.php' ) . '">' . __( 'Settings' ) . '</a>' );
+		return array_merge( $links, $plugin_action_links );
 	}
-
 
 	/**
 	 * Outputs content before the settings fields.
 	 *
 	 * @since 1.1
 	 */
-
 	function clean_image_filenames_settings_section_callback() {
-
-		echo '<p>' . __('Choose which file types that Clean Image Filenames shall improve the filenames for when files are uploaded.', 'clean_image_filenames') . '</p>';
+		echo '<p>' . __( 'Choose which file types that Clean Image Filenames shall improve the filenames for when files are uploaded.', 'clean_image_filenames' ) . '</p>';
 	}
-
 
 	/**
 	 * Outputs the settings fields.
@@ -197,22 +180,20 @@ class CleanImageFilenames {
 	 * @since 1.1
 	 * @param array Field defails.
 	 */
+	function clean_image_filenames_mime_types_callback( $args ) {
 
-	function clean_image_filenames_mime_types_callback($args) {
-
-		if (apply_filters('clean_image_filenames_mime_types', $this->plugin_settings['default_mime_types']) !== $this->plugin_settings['default_mime_types']) {
+		if ( apply_filters( 'clean_image_filenames_mime_types', $this->plugin_settings[ 'default_mime_types' ] ) !== $this->plugin_settings[ 'default_mime_types' ] ) {
 			
-			echo '<input name="clean_image_filenames_mime_types" id="clean_image_filenames_mime_types" type="hidden" value="' . get_option('clean_image_filenames_mime_types') . '">';
-			echo '<i>' . __('The setting for what file types should be cleaned is disabled since a plugin or theme has already defined what file types should be cleaned.', 'clean_image_filenames') . '</i>';
+			echo '<input name="clean_image_filenames_mime_types" id="clean_image_filenames_mime_types" type="hidden" value="' . get_option( 'clean_image_filenames_mime_types' ) . '">';
+			echo '<i>' . __( 'The setting for what file types should be cleaned is disabled since a plugin or theme has already defined what file types should be cleaned.', 'clean_image_filenames' ) . '</i>';
 
 		} else {
 
-			foreach ($args['alternatives'] as $alternative) {
-				echo '<label><input name="clean_image_filenames_mime_types" id="clean_image_filenames_mime_types" type="radio" value="' . $alternative['value'] . '" ' . checked($alternative['value'], get_option('clean_image_filenames_mime_types'), false) . '>' . $alternative['label'] . '</label><br>';
+			foreach ( $args[ 'alternatives' ] as $alternative ) {
+				echo '<label><input name="clean_image_filenames_mime_types" id="clean_image_filenames_mime_types" type="radio" value="' . $alternative[ 'value' ] . '" ' . checked( $alternative[ 'value' ], get_option( 'clean_image_filenames_mime_types' ), false ) . '>' . $alternative[ 'label' ] . '</label><br>';
 			}
 		}
 	}
-
 
 	/**
 	 * Checks whether or not the current file should be cleaned.
@@ -230,32 +211,32 @@ class CleanImageFilenames {
 	 * @param array The file information including the filename in $file['name'].
 	 * @return array The file information with the cleaned or original filename.
 	 */
+	function upload_filter( $file ) {
+		
+		$original_filename = pathinfo( $file[ 'name' ] );
+		set_transient( '_clean_image_filenames_original_filename', $original_filename[ 'filename' ], 60 );
+		$mime_types_setting = get_option( 'clean_image_filenames_mime_types' );
+		$default_mime_types = $this->plugin_settings[ 'default_mime_types' ];
+		$valid_mime_types = apply_filters( 'clean_image_filenames_mime_types', $default_mime_types );
 
-	function upload_filter($file) {
+		if ( $valid_mime_types !== $default_mime_types ) {
 
-		$mime_types_setting = get_option('clean_image_filenames_mime_types');
-		$default_mime_types = $this->plugin_settings['default_mime_types'];
-		$valid_mime_types = apply_filters('clean_image_filenames_mime_types', $default_mime_types);
-
-		if ($valid_mime_types !== $default_mime_types) {
-
-			if (in_array($file['type'], $valid_mime_types)) {
-				$file = $this->clean_filename($file);
+			if ( in_array( $file[ 'type' ], $valid_mime_types ) ) {
+				$file = $this->clean_filename( $file );
 			}
 
 		} else {
 
-			if ('all' == $mime_types_setting) {
-				$file = $this->clean_filename($file);
-			} elseif ('images' == $mime_types_setting && in_array($file['type'], $default_mime_types)) {
-				$file = $this->clean_filename($file);
+			if ( 'all' == $mime_types_setting ) {
+				$file = $this->clean_filename( $file );
+			} elseif ( 'images' == $mime_types_setting && in_array( $file[ 'type' ], $default_mime_types ) ) {
+				$file = $this->clean_filename( $file );
 			}
 		}
 
 		// Return cleaned file or input file if it didn't match
 	    return $file;
 	}
-
 
 	/**
 	 * Performs the filename cleaning.
@@ -268,14 +249,35 @@ class CleanImageFilenames {
 	 * @param array File details including the filename in $file['name'].
 	 * @return array The $file array with cleaned filename.
 	 */
+	function clean_filename( $file ) {
 
-	function clean_filename($file) {
-
-		$path = pathinfo($file['name']);
-		$new_filename = preg_replace('/.' . $path['extension'] . '$/', '', $file['name']);
-		$file['name'] = sanitize_title($new_filename) . '.' . $path['extension'];
-
+		$path = pathinfo( $file[ 'name' ] );
+		$new_filename = preg_replace( '/.' . $path[ 'extension' ] . '$/', '', $file[ 'name' ] );
+		$file[ 'name' ] = sanitize_title( $new_filename ) . '.' . $path[ 'extension' ];
+		
 		return $file;
+	}
+	
+	/**
+	 * Set attachment title to original, un-cleaned filename
+	 *
+	 * The original, un-cleaned filename is saved as a transient called 
+	 * _clean_image_filenames_original_filename just before the filename is cleaned 
+	 * and saved. When WordPress adds the attachment to the database, this function 
+	 * picks up the original filename from the transient and saves it as the 
+	 * attachment title.
+	 *
+	 * @since 1.2
+	 * @param int Attachment post ID.
+	 */	
+	function update_attachment_title( $attachment_id ) {
+		
+		$original_filename = get_transient( '_clean_image_filenames_original_filename' );
+		
+		if ( $original_filename ) {
+			wp_update_post( array( 'ID' => $attachment_id, 'post_title' => $original_filename ) );
+			delete_transient( '_clean_image_filenames_original_filename' );
+		}
 	}
 }
 

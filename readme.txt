@@ -2,8 +2,8 @@
 Contributors: Upperdog, Gesen
 Tags: upload, images, files, media, 
 Requires at least: 2.9
-Tested up to: 4.9
-Stable tag: 1.1.1
+Tested up to: 4.9.4
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RDLVEE9A2LMUL
@@ -61,6 +61,10 @@ No, this plugin only cleans the filenames of files when they are being uploaded 
 1. Easily choose between cleaning the filenames of all files or images only.
 
 == Changelog ==
+
+= 1.2 =
+
+* Set original, un-cleaned filename as attachment title.
 
 = 1.1.1 =
 
