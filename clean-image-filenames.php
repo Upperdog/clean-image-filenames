@@ -6,6 +6,8 @@
  * Author: Upperdog
  * Author URI: http://upperdog.com
  * Author Email: hello@upperdog.com
+ * Text Domain: clean-image-filenames
+ * Domain Path: /languages
  * License: GPL2
  */
 
