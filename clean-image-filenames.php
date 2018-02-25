@@ -4,7 +4,7 @@
  * Description: Filenames with special characters or language accent characters can sometimes be a problem. This plugin takes care of that by cleaning the filenames.
  * Version: 1.2
  * Author: Upperdog
- * Author URI: http://upperdog.com
+ * Author URI: https://upperdog.com
  * Author Email: hello@upperdog.com
  * Text Domain: clean-image-filenames
  * Domain Path: /languages
