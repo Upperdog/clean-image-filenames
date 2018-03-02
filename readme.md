@@ -8,10 +8,11 @@ Easily set the plugin to clean the filenames of images only or all files uploade
 
 ## Features
 
-* Can be used for all file types, only image file types, or only specific file types
-* Is multisite compatible
+* Can be used for all file types, not only images
+* Multisite compatible
 * Works with custom upload_dir setups
 * Doesn't alter your database or uploads settings
+* Gutenberg ready
 
 ## Plugin filter for developers
 
@@ -49,7 +50,11 @@ No, this plugin only cleans the filenames of files when they are being uploaded 
 
 ## Changelog
 
-## 1.2
+### 1.2.1
+
+* Enable plugin to be translated/internationalization.
+
+### 1.2
 
 * Set original, un-cleaned filename as attachment title.
 
