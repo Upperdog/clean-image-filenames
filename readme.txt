@@ -2,11 +2,11 @@
 Contributors: Upperdog, Gesen
 Tags: upload, images, files, media, 
 Requires at least: 2.9
-Tested up to: 4.9.4
+Tested up to: 5.0
 Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RDLVEE9A2LMUL
+Donate link: https://paypal.me/gesen
 
 Filenames with special characters or language accent characters can sometimes be a problem. This plugin takes care of that by cleaning the filenames.
 
