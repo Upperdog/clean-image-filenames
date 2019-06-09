@@ -18,7 +18,7 @@ Easily set the plugin to clean the filenames of images only or all files uploade
 
 Developers can get really specific about what file types to clean by using the `clean_image_filenames_mime_types` filter in their plugins or themes. **When using this filter, settings saved through the settings page are overridden.** For a complete list of mime types, see [Wikipedia](http://en.wikipedia.org/wiki/Internet_media_type).
 
-The following example would make the plugin clean the filenames for PDF, JPEG and PNG files only. 
+The following example would make the plugin clean the filenames for PDF, GIF, TIFF, JPEG and PNG files only. 
 
 <pre><code>function my_clean_image_filenames_mime_types() {
 
