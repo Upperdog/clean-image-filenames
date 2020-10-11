@@ -1,0 +1,22 @@
+{
+    "name": "upperdog/clean-image-filenames",
+	"description": "A short description of what your package does",
+	"homepage": "https://github.com/upperdog/clean-image-filenames",
+    "license": "GPL-3.0-or-later",
+    "type": "wordpress-plugin",
+    "authors": [
+        {
+            "name": "Upperdog",
+            "email": "hello@upperdog.com"
+        }
+    ],
+    "keywords": [
+        "wordpress", 
+		"media",
+		"images",
+		"sanitize"
+    ],
+    "require": {
+		"composer/installers": "^1.6"
+    }
+}
