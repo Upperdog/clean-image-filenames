@@ -1,54 +1,67 @@
 # Clean Image Filenames
 
-Filenames with special characters or language accent characters, like Château de Ferrières.jpg and smörgåsbord.png, can sometimes be a problem for browsers or servers. This plugin takes care of that and cleans the filenames of files uploaded to the WordPress media library. 
-
-This plugin cleans the filenames from special characters like exclamation marks, periods, and commas and accent characters like Swedish and German umlauts. Special characters are remove, accent characters are converted to their non-accent equivalent, and blank spaces are converted into dashes. 
-
-Easily set the plugin to clean the filenames of images only or all files uploaded to the media library. Developers can take advantage of the built in filter to get really specific about what file types to clean the filenames of.
+This plugin automatically converts language accent characters in filenames when uploading to the media library. Characters are converted into browser and server friendly, non-accent characters.
 
 ## Features
 
-* Can be used for all file types, not only images
-* Multisite compatible
-* Works with custom upload_dir setups
-* Doesn't alter your database or uploads settings
-* Gutenberg ready
+* Converts accent characters to non-accent, latin equivalents in Swedish, Danish, German, and more.
+* Removes special characters like exclamation marks, periods, hashtags, and more.
+* Lets you choose if you want to convert only image files, or all file types.
+* Makes site and server migrations easier thanks to non-accent character filenames.
+* Provides filter hook for developers who want to specify which which file types to convert.
 
-## Plugin filter for developers
+## Examples
 
-Developers can get really specific about what file types to clean by using the `clean_image_filenames_mime_types` filter in their plugins or themes. **When using this filter, settings saved through the settings page are overridden.** For a complete list of mime types, see [Wikipedia](http://en.wikipedia.org/wiki/Internet_media_type).
+* Räksmörgås.jpg → raksmorgas.jpg
+* Æblegrød_FTW!.gif → aeblegrod-ftw.gif
+* Château de Ferrières.png → chateau-de-ferrieres.png
 
-The following example would make the plugin clean the filenames for PDF, JPEG and PNG files only. 
+## Worth noting
 
-<pre><code>function my_clean_image_filenames_mime_types() {
+The plugin only converts filenames when the files are being uploaded. It can not convert existing files.
+
+## Filter for developers
+
+This filter provides developers a way to specify which file types the plugin should convert. This filter overrides the plugin settings on the media settings page. For a complete list of mime types, see [Wikipedia](http://en.wikipedia.org/wiki/Internet_media_type).
+
+The following example will convert PDF, JPEG and PNG files only:
+
+```
+function my_clean_image_filenames_mime_types() {
 
 	$mime_types = array(
-		'application/pdf', 
-		'image/jpeg', 
-		'image/png', 
+		'application/pdf',
+		'image/jpeg',
+		'image/png',
 	);
 
 	return $mime_types;
 }
-add_filter('clean_image_filenames_mime_types', 'my_clean_image_filenames_mime_types');</code></pre>
+add_filter( 'clean_image_filenames_mime_types', 'my_clean_image_filenames_mime_types' );
+```
 
 ## FAQ
 
-### Why does this plugin exist?
-
-No matter how hard you try to teach people to name their files in a certain way before uploading, sooner or later you will end up with a media library with filenames like Château de Ferrières.jpg or Smörgåsbord.png. Sometimes browsers or servers have a hard time displaying images with filenames like these and the images end up broken. 
-
-### Can this plugin clean the filenames of existing files in the media library?
+### Can this plugin convert filenames of existing files in the media library?
 
 No, this plugin only cleans the filenames of files when they are being uploaded to the media library.
 
 ## Installation
 
-1. Rename the `clean-image-filenames-master` directory to `clean-image-filenames`.
-2. Upload the `clean-image-filenames` directory to the `/wp-content/plugins/` directory.
-3. Activate the plugin through the 'Plugins' menu in WordPress.
+1. Search for Clean Image Filenames in the plugins directory.
+2. Install and activate the plugin.
+
+or
+
+1. Download and unzip the plugin and upload the `clean-image-filenames` directory to your `/plugins/` directory.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 ## Changelog
+
+### 1.3
+
+* Rewrite cleaning function to better handle specific characters.
+* Make sure code is compliant with WordPress Coding Standards.
 
 ### 1.2.1
 
