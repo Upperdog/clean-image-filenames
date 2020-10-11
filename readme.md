@@ -8,7 +8,7 @@ This plugin automatically converts language accent characters in filenames when 
 * Removes special characters like exclamation marks, periods, hashtags, and more.
 * Lets you choose if you want to convert only image files, or all file types.
 * Makes site and server migrations easier thanks to non-accent character filenames.
-* Provides filter hook for developers who want to specify which which file types to convert.
+* Provides filter hook for developers who want to specify which file types to convert.
 
 ## Examples
 
