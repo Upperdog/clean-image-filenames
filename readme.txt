@@ -14,7 +14,7 @@ This plugin automatically converts language accent characters to non-accent char
 
 This plugin automatically converts language accent characters in filenames when uploading to the media library. Characters are converted into browser and server friendly, non-accent characters.
 
-= Features =
+== Features ==
 
 * Converts accent characters to non-accent, latin equivalents in Swedish, Danish, German, and more.
 * Removes special characters like exclamation marks, periods, hashtags, and more.
@@ -22,17 +22,17 @@ This plugin automatically converts language accent characters in filenames when 
 * Makes site and server migrations easier thanks to non-accent character filenames.
 * Provides filter hook for developers who want to specify which file types to convert.
 
-= Examples =
+== Examples ==
 
 * Räksmörgås.jpg → raksmorgas.jpg
 * Æblegrød_FTW!.gif → aeblegrod-ftw.gif
 * Château de Ferrières.png → chateau-de-ferrieres.png
 
-= Worth noting =
+== Worth noting ==
 
 The plugin only converts filenames when the files are being uploaded. It can not convert existing files.
 
-= Filter for developers =
+== Filter for developers ==
 
 This filter provides developers a way to specify which file types the plugin should convert. This filter overrides the plugin settings on the media settings page. For a complete list of mime types, see [Wikipedia](http://en.wikipedia.org/wiki/Internet_media_type).
 
