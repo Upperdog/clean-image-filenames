@@ -2,7 +2,7 @@
 Contributors: Upperdog, Gesen
 Tags: upload, images, files, media, sanitize,
 Requires at least: 2.9
-Tested up to: 5.9
+Tested up to: 6.1
 Stable tag: 1.3
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
