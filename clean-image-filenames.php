@@ -35,7 +35,7 @@ class CleanImageFilenames {
 	 * @var array $plugin_settings Plugin settings for version, default mime types.
 	 */
 	public $plugin_settings = array(
-		'version'            => '1.3',
+		'version'            => '1.4',
 		'default_mime_types' => array(
 			'image/gif',
 			'image/jpeg',
@@ -49,6 +49,7 @@ class CleanImageFilenames {
 	 * Sets up hooks, actions and filters that the plugin responds to.
 	 *
 	 * @since 1.0
+	 * @since 1.4 Added wp_handle_sideload_prefilter hook.
 	 */
 	public function __construct() {
 		register_activation_hook( __FILE__, array( $this, 'plugin_activation' ) );
