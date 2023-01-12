@@ -70,6 +70,10 @@ No, this plugin only cleans the filenames of files when they are being uploaded 
 
 == Changelog ==
 
+= 1.4 =
+
+* Add support for cleaning filenames when sideloaded (usually when uploaded programmatically) using the wp_handle_sideload_prefilter hook.
+
 = 1.3 =
 
 * Rewrite cleaning function to better handle specific characters.
