@@ -120,7 +120,7 @@ class CleanImageFilenames {
 		load_plugin_textdomain( 'clean-image-filenames', false, dirname( plugin_basename( __FILE__ ) ) . 'languages' );
 
 		// Add settings section.
-		add_settings_section( 'clean_image_filenames_settings_section', 'Clean Image Filenames', array( $this, 'clean_image_filenames_settings_section_callback' ), 'media' );
+		add_settings_section( 'clean_image_filenames_settings_section', _x( 'Clean Image Filenames', 'Settings Section', 'clean-image-filenames' ), array( $this, 'clean_image_filenames_settings_section_callback' ), 'media' );
 
 		// Add settings field.
 		add_settings_field(
