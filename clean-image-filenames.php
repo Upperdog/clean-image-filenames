@@ -42,6 +42,8 @@ class CleanImageFilenames {
 			'image/pjpeg',
 			'image/png',
 			'image/tiff',
+			'image/avif',
+			'image/webp',
 		),
 	);
 
