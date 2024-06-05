@@ -58,6 +58,14 @@ or
 
 ## Changelog
 
+### 1.5
+
+* Add support for WebP and AVIF image formats. Thanks to @vinkla for the pull request.
+
+### 1.4
+
+* Add support for cleaning filenames when sideloaded (usually when uploaded programmatically) using the wp_handle_sideload_prefilter hook.
+
 ### 1.3
 
 * Rewrite cleaning function to better handle specific characters.

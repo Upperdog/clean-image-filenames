@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Clean Image Filenames
  * Description: This plugin automatically converts language accent characters to non-accent characters in filenames when uploading to the media library.
- * Version: 1.4
+ * Version: 1.5
  * Author: Upperdog
  * Author URI: https://upperdog.com
  * Author Email: hello@upperdog.com
@@ -35,13 +35,15 @@ class CleanImageFilenames {
 	 * @var array $plugin_settings Plugin settings for version, default mime types.
 	 */
 	public $plugin_settings = array(
-		'version'            => '1.4',
+		'version'            => '1.5',
 		'default_mime_types' => array(
 			'image/gif',
 			'image/jpeg',
 			'image/pjpeg',
 			'image/png',
 			'image/tiff',
+			'image/avif',
+			'image/webp',
 		),
 	);
 
