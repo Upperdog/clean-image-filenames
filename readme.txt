@@ -2,8 +2,8 @@
 Contributors: Upperdog, Gesen
 Tags: upload, images, files, media, sanitize,
 Requires at least: 2.9
-Tested up to: 6.2
-Stable tag: 1.4
+Tested up to: 6.5
+Stable tag: 1.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Donate link: https://paypal.me/gesen
@@ -69,6 +69,10 @@ No, this plugin only cleans the filenames of files when they are being uploaded 
 1. Easily choose between cleaning the filenames of all file types or images only.
 
 == Changelog ==
+
+= 1.5 =
+
+* Add support for WebP and AVIF image formats. Thanks to @vinkla for the pull request.
 
 = 1.4 =
 
