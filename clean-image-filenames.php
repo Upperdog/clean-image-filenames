@@ -469,6 +469,9 @@ class CleanImageFilenames {
 			'%20' => '-',
 		);
 
+		// Allow plugins and themes to modify the specific replacements.
+		$specific_replacements = apply_filters('clean_image_filenames_specific_replacements', $specific_replacements);
+
 		// Replace specific characters.
 		$cleaned_filename = str_replace( array_keys( $specific_replacements ), array_values( $specific_replacements ), $cleaned_filename );
 
